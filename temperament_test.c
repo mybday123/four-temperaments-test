@@ -10,7 +10,7 @@
 */
 
 #include <stdio.h>
-#define CLEAR_SCREEN "\e[1;1H\e[2J"
+const char* CLEAR_SCREEN = "\e[1;1H\e[2J";
 
 int main(void) {
     printf(CLEAR_SCREEN);
