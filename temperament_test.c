@@ -2,11 +2,11 @@
 *    temperament_test.c - THE TEMPERAMENTS TEST
 *
 *    THIS PROGRAM IS MADE AND WRITTEN BY:
-*    1. Gilbert Owen
-*    2. Raden Zahra Auliya Marissa Solihin
-*    3. Dirga Yuza
-*    4. Zefanya Felicita Adithya
-*    5. Shafiya Ramadhani Kanata
+*    ├─ 1. Gilbert Owen
+*    ├─ 2. Raden Zahra Auliya Marissa Solihin
+*    ├─ 3. Dirga Yuza
+*    ├─ 4. Zefanya Felicita Adithya
+*    └─ 5. Shafiya Ramadhani Kanata
 */
 
 #include <stdio.h>
