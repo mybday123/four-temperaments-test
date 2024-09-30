@@ -74,6 +74,15 @@ const char choices[10][4][500] = {
      "D. Jika suasana di sekitar saya penuh konflik dengan situasi yang menegangkan, atau ketika tidak bisa menemukan ketenangan."}
 };
 
+// Display the questions and its choices
+void display_question(int question_index) {
+    printf("%s\n\n", questions[question_index]);
+    for (int j = 0; j < 4; j++) {
+        printf("%s\n", choices[question_index][j]);
+    }
+}
+
+
 int main(void) {
     printf(CLEAR_SCREEN);
     puts("*************************************************************************************");
