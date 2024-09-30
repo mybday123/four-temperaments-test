@@ -1,7 +1,7 @@
 /*
-*    temperament_test.c - THE TEMPERAMENTS TEST
+*    temperament_test.c - The Temperaments Test
 *
-*    THIS PROGRAM IS MADE AND WRITTEN BY:
+*    This Program is Made and Written by:
 *    ├─ 1. Gilbert Owen
 *    ├─ 2. Raden Zahra Auliya Marissa Solihin
 *    ├─ 3. Dirga Yuza
