@@ -10,7 +10,8 @@
 */
 
 #include <stdio.h>
-const char* CLEAR_SCREEN = "\e[1;1H\e[2J";
+#include <ctype.h>
+const char* CLEAR_SCREEN = "\e[1;1H\e[2J"; // Regex for clearing the terminal screen
 
 typedef struct {
     int a; // Melancholic
@@ -170,6 +171,13 @@ void display_results(Score score) {
 }
 
 int main(void) {
+    Score score = {
+        0,
+        0,
+        0,
+        0,
+    };
+
     printf(CLEAR_SCREEN);
     puts("*************************************************************************************");
     puts("Selamat Datang di Tes Kepribadian The Four Temperaments!");
@@ -179,7 +187,29 @@ int main(void) {
     while (getchar() != '\n') {
         getchar();
     }
+    puts("Melanjutkan...\n");
 
-    puts("Melanjutkan...");
+    for (int i = 0; i < 10; i++) {
+        int is_valid_answer = 0;
+        display_question(i);
+        printf("\n");
+        do {
+            char answer = get_answer();
+            answer = toupper(answer);
+
+            if (answer == 'A' || answer == 'B' || answer == 'C' || answer == 'D') {
+                update_score(answer, &score);
+                is_valid_answer = 1;
+            }
+            else {
+                puts("Jawaban tidak valid! Silakan coba lagi.");
+            }
+        } while (is_valid_answer != 1);
+    }
+
+    puts("Berikut hasilnya: \n");
+    display_results(score);
+    puts("\nTekan Enter untuk keluar dari program.");
+    getchar();
     return 0;
 }
