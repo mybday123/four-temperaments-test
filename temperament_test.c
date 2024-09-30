@@ -91,6 +91,26 @@ char get_answer() {
     return answer;
 }
 
+// Update the score based on the user's answer
+void update_score(char answer, Score *score) {
+    switch (answer) {
+    case 'A':
+        score->a++;
+        break;
+    case 'B':
+        score->b++;
+        break;
+    case 'C':
+        score->c++;
+        break;
+    case 'D':
+        score->d++;
+        break;
+    default:
+        break;
+    }
+}
+
 
 int main(void) {
     printf(CLEAR_SCREEN);
