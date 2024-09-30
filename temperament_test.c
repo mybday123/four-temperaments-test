@@ -175,10 +175,10 @@ void display_results(Score score) {
         }
     }
     if (non_dominant != NULL) {
-        printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s dan non-dominan %s\n", dominant, non_dominant);
+        printf("Dari hasil tes diatas, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s dan non-dominan %s\n", dominant, non_dominant);
     } 
     else {
-        printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s\n", dominant);
+        printf("Dari hasil tes diatas, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s\n", dominant);
     }
 }
 
@@ -221,7 +221,6 @@ int main(void) {
 
     puts("Berikut hasilnya: \n");
     display_results(score);
-    puts("\nTekan Enter untuk keluar dari program.");
-    getchar();
+    printf("\n");
     return 0;
 }
