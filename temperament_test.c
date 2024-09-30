@@ -119,54 +119,66 @@ void display_results(Score score) {
     printf("Koleris : %.2f%%\n", (((float)score.c / 10.0) * 100.0));
     printf("Phlegmatis : %.2f%%\n", (((float)score.d / 10.0) * 100.0));
 
-    if (score.a >= score.b && score.a >= score.c && score.a >= score.d) {
-        if (score.b >= score.c && score.b >= score.d && score.b != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Melankolis dan non-dominan Sanguine\n");
+    int max_score = score.a;
+    char* dominant = "Melankolis";
+    char* non_dominant = NULL;
+
+    // Dominant
+    if (score.b > max_score) {
+        max_score = score.b;
+        dominant = "Sanguine";
+    }
+    if (score.c > max_score) {
+        max_score = score.c;
+        dominant = "Koleris";
+    }
+    if (score.d > max_score) {
+        max_score = score.d;
+        dominant = "Phlegmatis";
+    }
+
+    // Non-dominant
+    if (max_score == score.a) {
+        if (score.b > 0 && score.b >= score.c && score.b >= score.d) {
+            non_dominant = "Sanguine";
+        } else if (score.c > 0 && score.c >= score.d) {
+            non_dominant = "Koleris";
+        } else if (score.d > 0) {
+            non_dominant = "Phlegmatis";
         }
-        else if (score.c >= score.d && score.c != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Melankolis dan non-dominan Koleris\n");
+    } 
+    else if (max_score == score.b) {
+        if (score.a > 0 && score.a >= score.c && score.a >= score.d) {
+            non_dominant = "Melankolis";
+        } else if (score.c > 0 && score.c >= score.d) {
+            non_dominant = "Koleris";
+        } else if (score.d > 0) {
+            non_dominant = "Phlegmatis";
         }
-        else if (score.d != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Melankolis dan non-dominan Phlegmatis\n");
+    } 
+    else if (max_score == score.c) {
+        if (score.a > 0 && score.a >= score.b && score.a >= score.d) {
+            non_dominant = "Melankolis";
+        } else if (score.b > 0 && score.b >= score.d) {
+            non_dominant = "Sanguine";
+        } else if (score.d > 0) {
+            non_dominant = "Phlegmatis";
         }
-        else {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Melankolis\n");
+    } 
+    else { // max_score == score.d
+        if (score.a > 0 && score.a >= score.b && score.a >= score.c) {
+            non_dominant = "Melankolis";
+        } else if (score.b > 0 && score.b >= score.c) {
+            non_dominant = "Sanguine";
+        } else if (score.c > 0) {
+            non_dominant = "Koleris";
         }
     }
-    else if (score.b >= score.c && score.b >= score.d)
-    {
-        if (score.a >= score.c && score.a >= score.d && score.a != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Sanguine dan non-dominan Melankolis\n");
-        }
-        else if (score.c >= score.d && score.c != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Sanguine dan non-dominan Koleris\n");
-        }
-        else if (score.d != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Sanguine dan non-dominan Phlegmatis\n");
-        }
-    }
-    else if (score.c >= score.d)
-    {
-        if (score.a >= score.b && score.a >= score.d && score.a != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Koleris dan non-dominan Melankolis\n");
-        }
-        else if (score.b >= score.d) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Koleris dan non-dominan Sanguine\n");
-        }
-        else if (score.d != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Koleris dan non-dominan Phlegmatis\n");
-        }
-    }
+    if (non_dominant != NULL) {
+        printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s dan non-dominan %s\n", dominant, non_dominant);
+    } 
     else {
-        if (score.a >= score.b && score.a >= score.c && score.a != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Phlegmatis dan non-dominan Melankolis\n");
-        }
-        else if (score.b >= score.c && score.b != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Phlegmatis dan non-dominan Sanguine\n");
-        }
-        else if (score.c != 0) {
-            printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan Phlegmatis dan non-dominan Koleris\n");
-        }
+        printf("Kesimpulan dari tes kali ini, dapat disimpulkan bahwa kamu memiliki kepribadian yang dominan %s\n", dominant);
     }
 }
 
