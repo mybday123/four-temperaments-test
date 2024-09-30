@@ -82,6 +82,15 @@ void display_question(int question_index) {
     }
 }
 
+// Get answer for user
+char get_answer() {
+    char answer;
+    printf("Masukkan jawanban (A/B/C/D): ");
+    scanf(" %c", &answer);
+    printf("\n");
+    return answer;
+}
+
 
 int main(void) {
     printf(CLEAR_SCREEN);
