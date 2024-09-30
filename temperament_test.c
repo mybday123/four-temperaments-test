@@ -32,7 +32,7 @@ const char questions[10][200] = {
     {"9. Semua orang memiliki sifat positif dari diri nya masing masing, apa sifat positif yang kamu miliki?"},
     {"10. Hal apa yang dapat membuatmu galau?"},
 };
-const char choices[10][4][500] = { // C B A D
+const char choices[10][4][500] = {
     {"A. Saya cenderung menganalisis sekitar, berhati-hati, dan nyaman dalam kelompok kecil atau dengan orang yang dekat.",
      "B. Sosialisasi itu bikin saya semangat! Bertemu orang baru dan bikin suasana seru itu favorit saya.",
      "C. Saya suka banget saat bisa memimpin obrolan dan mengarahkan diskusi. Bagi saya, sosialisasi itu kesempatan buat bangun jaringan.",
